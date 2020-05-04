@@ -18,9 +18,9 @@ public class SocketTextHandler extends TextWebSocketHandler {
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) {
 		String payload = message.getPayload();
-
+		log.info("message: {}, remoteAddress: {}", payload, session.getRemoteAddress());
+		
 		try {
-
 			// 접속된 모든 세션에 메시지 전송
 			for (String key : sessions.keySet()) {
 				WebSocketSession ss = sessions.get(key);
